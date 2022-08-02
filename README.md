@@ -18,7 +18,7 @@ allprojects {
 
 ```
 dependencies {
-  implementation 'com.github.Irfan-Karim:Global-Image-Getter:Tag' 
+  implementation 'com.github.Irfan-Karim:Global-Image-Getter:1.0' 
 }
 ```
 
