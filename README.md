@@ -1,4 +1,5 @@
-# Global-Image-Getter
+# Global-Images-Getter
+## Fast, Simple, Easy to Use
 Fetch all images along with folders containing images in Android device
 
 ## Import
