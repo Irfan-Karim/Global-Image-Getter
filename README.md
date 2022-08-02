@@ -31,8 +31,8 @@ val imageFetcher = ImageFetcher(context)
 
 ### Call getAllImages to get all image files in device
 ```
-CoroutineScope(Dispathers.IO).launch{
-  imageFetcher.getAllImages { file->
+CoroutineScope(Dispathers.IO).launch {
+  imageFetcher.getAllImages { file ->
     Log.i("TAG", "getImages: ${file?.size}")
   }
 }
@@ -40,9 +40,50 @@ CoroutineScope(Dispathers.IO).launch{
 ### Sort The Images
 use ImageSortOrder._ as followed
 ```
-CoroutineScope(Dispathers.IO).launch{
-  imageFetcher.getAllImages(ImagesSortOrder.LastModifiedAscending) { file->
+CoroutineScope(Dispathers.IO).launch {
+  imageFetcher.getAllImages(ImagesSortOrder.LastModifiedAscending) { file ->
     Log.i("TAG", "getImages: ${file?.size}")
+  }
+}
+```
+
+## Fetch All Folders Containing Images
+
+### Create Instance of ImageFetcher
+
+```
+val imageFetcher = ImageFetcher(context)
+```
+
+### Call getAllImages to get all image files in device
+```
+imageFetcher.getDataAndFolders { folder ->
+  Log.i("TAG", "getImages: ${folder?.size}")
+}
+```
+Folder will contain the name of the folder and all the images contained in that folder
+```
+folder.foreach { it ->
+  log.i("TAG", ${it.name})
+  log.i("TAG", ${it.data.size})
+}
+```
+
+### Sort the Folders
+Use FolderSortOrder._ as followed
+```
+CoroutineScope(Dispatchers.IO).launch {
+  imageFetcher.getDataAndFolders(null,FolderSortOrder.LengthAscending) { folder ->
+    Log.i("TAG", "getImages: ${folder?.size}")
+  }
+}
+```
+### Sort the both Folders and Images
+Use ImagesSortOrder._ and FolderSortOrder._ as followed
+```
+CoroutineScope(Dispatchers.IO).launch {
+  imageFetcher.getDataAndFolders(ImagesSortOrder.LastModifiedAscending,FolderSortOrder.LengthAscending) { folder ->
+    Log.i("TAG", "getImages: ${folder?.size}")
   }
 }
 ```
