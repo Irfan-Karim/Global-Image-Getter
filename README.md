@@ -22,6 +22,9 @@ dependencies {
 }
 ```
 
+## Disclaimer
+Get read write permission or Manage all storage permission before initialization else fetched folder and images will be null
+
 ## Fetch All Images
 
 ### Create Instance of ImageFetcher
