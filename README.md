@@ -64,7 +64,7 @@ CoroutineScope(Dispathers.IO).launch {
 val imageFetcher = ImageFetcher(context)
 ```
 
-### Call getAllImages to get all image files in device
+### Call getDataAndFolders to get all image files in device
 
 ```
 imageFetcher.getDataAndFolders { folder ->
